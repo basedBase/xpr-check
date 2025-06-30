@@ -110,7 +110,7 @@ export default function App() {
     return (
         <div className="app-container">
             <div className="dashboard">
-                <h1>🕹️ XPR PIXEL DASHBOARD</h1>
+                <h1>🕹️ XPR CALCULATOR</h1>
                 <div className='grid' style={{marginBottom:'20px'}}>
                     <div className="label">계정명</div>
                     <div className="value"><input
