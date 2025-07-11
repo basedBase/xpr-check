@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/v1',
     createProxyMiddleware({
-      target: 'http://proton.protonuk.io',
+      target: 'https://api-xprnetwork-main.saltant.io/',
       changeOrigin: true,
     })
   );

@@ -146,7 +146,7 @@ export default function App() {
 
         try {
             for (let i = 0; i < 10; i++) { // Increased loop to fetch more history if needed
-                const response = await fetch(`http://proton.protonuk.io/v1/history/get_actions`, {
+                const response = await fetch(`https://api-xprnetwork-main.saltant.io/v1/history/get_actions`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ account_name: accountName, pos: lastPos, offset: -100 }),
