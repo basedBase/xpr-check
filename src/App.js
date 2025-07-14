@@ -27,7 +27,7 @@ function nameToUint64(name) {
 // Main App Component
 export default function App() {
     // States
-    const [accountName, setAccountName] = useState('inch12');
+    const [accountName, setAccountName] = useState('');
     const [accountScope, setAccountScope] = useState(nameToUint64(accountName));
     const [xprAmount, setXprAmount] = useState(0);
     const [priceUSD, setPriceUSD] = useState(0);
