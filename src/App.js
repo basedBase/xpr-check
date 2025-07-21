@@ -57,8 +57,18 @@ export default function App() {
         Promise.all([fetchPrice, fetchBalance])
             .then(([priceData, balanceData]) => {
                 if (priceData) setPriceUSD(priceData);
-                const row = balanceData.rows.find(r => r.quantity);
-                setXprAmount(row ? row.quantity.split(' ')[0] : 0);
+                if (balanceData && balanceData.rows) {
+                    const totalXpr = balanceData.rows.reduce((sum, row) => {
+                        if (row.quantity && typeof row.quantity === 'string') {
+                            const amount = parseFloat(row.quantity.split(' ')[0]);
+                            return sum + (isNaN(amount) ? 0 : amount);
+                        }
+                        return sum;
+                    }, 0);
+                    setXprAmount(totalXpr);
+                } else {
+                    setXprAmount(0);
+                }
             })
             .catch(err => console.error("Error fetching initial data:", err))
             .finally(() => setLoading(false));
